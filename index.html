@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indo Polish Badminton Association</title>
-    <link rel="icon" href="logo.jpeg" type="image/jpeg">
-    <meta property="og:title" content="Indo Polish Badminton Association">
-    <meta property="og:description" content="Official website of the Indo Polish Badminton Association">
-    <meta property="og:image" content="logo.jpeg">
-    <meta property="og:url" content="https://ipba.pl">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
@@ -29,24 +24,14 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            border: 2px solid #8800cc;
-            box-shadow: 0 0 15px 5px #8800cc;
-            image-rendering: crisp-edges;
+            border: 2px solid #bb86fc;
+            box-shadow: 0 0 10px #bb86fc;
         }
         .title {
-            display: flex;
-            flex-direction: column;
-            margin-left: 10px;
-            line-height: 1.2;
-            color: #bb86fc;
-        }
-        .title .line1 {
             font-size: 24px;
+            margin-left: 10px;
             font-weight: 600;
-        }
-        .title .line2 {
-            font-size: 18px;
-            font-weight: 400;
+            color: #bb86fc;
         }
         .content {
             display: flex;
@@ -57,10 +42,11 @@
         .slideshow, .poster-scroll {
             width: 100%;
             height: 300px;
-            border-radius: 15px;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 0 20px #8800cc;
             position: relative;
+            border: 2px solid #bb86fc;
+            box-shadow: 0 0 10px #bb86fc;
         }
         .slide, .poster {
             width: 100%;
@@ -68,7 +54,7 @@
             position: absolute;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            background-size: cover !important;
+            background-size: contain !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
         }
@@ -80,11 +66,8 @@
             .content {
                 flex-direction: row;
             }
-            .title .line1 {
+            .title {
                 font-size: 36px;
-            }
-            .title .line2 {
-                font-size: 24px;
             }
             .slideshow, .poster-scroll {
                 height: 600px;
@@ -95,10 +78,7 @@
 <body>
     <div class="header">
         <div class="logo"><img src="logo.jpeg" alt="Association Logo"></div>
-        <div class="title">
-            <div class="line1">Indo Polish</div>
-            <div class="line2">Badminton Association</div>
-        </div>
+        <div class="title">Indo Polish Badminton Association</div>
     </div>
     <div class="content">
         <div class="slideshow">
