@@ -33,12 +33,19 @@
             box-shadow: 0 0 20px #8800cc;
         }
         .title {
-            font-size: 28px;
+            display: flex;
+            flex-direction: column;
             margin-left: 10px;
-            font-weight: 600;
-            color: #bb86fc;
             line-height: 1.2;
-            white-space: nowrap;
+            color: #bb86fc;
+        }
+        .title .line1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .title .line2 {
+            font-size: 18px;
+            font-weight: 400;
         }
         .content {
             display: flex;
@@ -72,8 +79,11 @@
             .content {
                 flex-direction: row;
             }
-            .title {
+            .title .line1 {
                 font-size: 36px;
+            }
+            .title .line2 {
+                font-size: 24px;
             }
             .slideshow, .poster-scroll {
                 height: 600px;
@@ -84,7 +94,10 @@
 <body>
     <div class="header">
         <div class="logo"><img src="logo.jpeg" alt="Association Logo"></div>
-        <div class="title">Indo Polish Badminton Association</div>
+        <div class="title">
+            <div class="line1">Indo Polish</div>
+            <div class="line2">Badminton Association</div>
+        </div>
     </div>
     <div class="content">
         <div class="slideshow">
