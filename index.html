@@ -86,9 +86,20 @@
             }
         }
 
-        /* Hidden link */
-        .hidden-link {
-            display: none;
+        .rules {
+            background: #1f1f1f;
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid #bb86fc;
+            box-shadow: 0 0 10px #bb86fc;
+            border-radius: 10px;
+        }
+        .rules h2 {
+            color: #bb86fc;
+            text-align: center;
+        }
+        .rules p {
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -113,8 +124,15 @@
         </div>
     </div>
 
-    <!-- Hidden link for rules and regulations -->
-    <a href="rules-and-regulations.html" class="hidden-link">Rules and Regulations</a>
+    <div class="rules">
+        <h2>Rules and Regulations</h2>
+        <p>1. All participants must register before the tournament start date.</p>
+        <p>2. Proper sports attire is mandatory on the court.</p>
+        <p>3. Players must arrive at least 15 minutes before their match time.</p>
+        <p>4. Any form of misconduct or unsporting behavior will lead to disqualification.</p>
+        <p>5. The referee’s decision will be final and binding.</p>
+        <p>6. Matches will follow standard badminton rules as outlined by BWF.</p>
+    </div>
 
     <script>
         const slides = document.querySelectorAll('.slide');
