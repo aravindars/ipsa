@@ -26,13 +26,14 @@
             border-radius: 50%;
             border: 2px solid #bb86fc;
             box-shadow: 0 0 10px #bb86fc;
+            cursor: pointer;
         }
         .title {
             font-size: 24px;
             margin-left: 10px;
             font-weight: 600;
             color: #bb86fc;
-            }
+        }
         .title .line1 {
             font-size: 24px;
             font-weight: 600;
@@ -74,23 +75,28 @@
             .content {
                 flex-direction: row;
             }
-            .title {
-               .title .line1 {
+            .title .line1 {
                 font-size: 36px;
             }
             .title .line2 {
                 font-size: 24px;
             }
-            }
             .slideshow, .poster-scroll {
                 height: 600px;
             }
+        }
+
+        /* Hidden link */
+        .hidden-link {
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="logo"><img src="logo2.jpeg" alt="Association Logo"></div>
+        <div class="logo" onclick="window.location.href='index.html'">
+            <img src="logo2.jpeg" alt="Association Logo">
+        </div>
         <div class="title">
             <div class="line1">Indo Polish</div>
             <div class="line2">Badminton Association</div>
@@ -106,6 +112,9 @@
             <div class="poster" style="background: url('poster-polish.jpeg')"></div>
         </div>
     </div>
+
+    <!-- Hidden link for rules and regulations -->
+    <a href="rules-and-regulations.html" class="hidden-link">Rules and Regulations</a>
 
     <script>
         const slides = document.querySelectorAll('.slide');
