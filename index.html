@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indo-Polish Badminton Association</title>
+    <title>Indo-Polish Badminton Association | 3rd Anniversary</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary: #6200ee; 
-            --secondary: #03dac6;
-            --dark: #1a1a2e;
+            --primary: #1a1a2e; /* Navy */
+            --secondary: #8cc63f; /* Poster Lime Green */
+            --accent: #ffcc00;
             --light: #ffffff;
             --gray: #f4f7f6;
-            --accent-gold: #ffcc00;
         }
 
         body {
@@ -31,52 +30,25 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 8%;
-            background: var(--dark);
+            background: var(--primary);
             color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-area img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--secondary); }
+        .brand-name b { display: block; font-size: 1.1rem; color: var(--secondary); text-transform: uppercase; }
 
-        .logo-area img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: 2px solid var(--secondary);
-            object-fit: cover;
-        }
-
-        .brand-name b {
-            display: block;
-            font-size: 1.2rem;
-            color: var(--secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--secondary); }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
 
         /* --- Hero Section --- */
         .hero {
-            background: linear-gradient(rgba(26, 26, 46, 0.85), rgba(26, 26, 46, 0.85)), url('player1.png');
+            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('player1.png');
             background-size: cover;
             background-position: center;
-            height: 70vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -85,123 +57,54 @@
             padding: 0 20px;
         }
 
-        .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 10px;
-            font-weight: 700;
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: var(--secondary); font-weight: 600; }
+
+        /* --- Tournament Spotlight --- */
+        .tournament-section {
+            max-width: 1100px;
+            margin: -60px auto 60px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
+        .poster-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .details-box span { background: var(--secondary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem; }
+        .details-box h2 { font-size: 2.2rem; margin: 15px 0; color: var(--primary); }
+        
+        .reg-btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: #252525;
             color: var(--secondary);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            border: 2px solid var(--secondary);
+            margin-top: 20px;
         }
+        .reg-btn:hover { background: var(--secondary); color: var(--primary); }
 
         /* --- Sections --- */
-        .section {
-            padding: 80px 10%;
-            max-width: 1200px;
-            margin: auto;
-        }
+        .section { padding: 60px 10%; max-width: 1200px; margin: auto; }
+        .mission-box { background: var(--gray); padding: 40px; border-radius: 20px; border-left: 8px solid var(--secondary); }
+        
+        /* --- Gallery --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-gap: 15px; grid-auto-rows: 280px; }
+        .gallery-item { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+        .gallery-item:hover { transform: scale(1.02); }
 
-        .mission-box {
-            background: var(--gray);
-            padding: 50px;
-            border-radius: 20px;
-            border-left: 10px solid var(--primary);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            margin-bottom: 50px;
-        }
-
-        .mission-box h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-top: 0;
-        }
-
-        /* --- Feature Cards --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            padding: 40px 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 1px solid #eee;
-        }
-
-        .card:hover { transform: translateY(-10px); }
-
-        .card h3 { color: var(--dark); margin-bottom: 15px; }
-
-        /* --- Gallery Grid --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            grid-gap: 15px;
-            grid-auto-rows: 280px;
-        }
-
-        .gallery-item {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            transition: transform 0.4s ease, filter 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
-
-        @media (min-width: 768px) {
-            .gallery-item:nth-child(4n) { grid-column: span 2; }
-        }
-
-        /* --- Footer/CTA --- */
-        .footer-cta {
-            text-align: center;
-            background: var(--dark);
-            color: white;
-            padding: 80px 20px;
-            margin-top: 50px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s;
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover { 
-            background: var(--secondary); 
-            color: var(--dark);
-            transform: scale(1.05);
-        }
-
-        .loading-text {
-            text-align: center;
-            grid-column: 1 / -1;
-            padding: 20px;
-            color: var(--primary);
-            font-weight: 600;
-        }
+        @media (max-width: 768px) { .tournament-section { margin: 20px; padding: 20px; } }
     </style>
 </head>
 <body>
@@ -209,10 +112,7 @@
 <header>
     <div class="logo-area">
         <img src="logo2.jpeg" alt="IPBA Logo">
-        <div class="brand-name">
-            <b>Indo-Polish</b>
-            <span>Badminton Association</span>
-        </div>
+        <div class="brand-name"><b>Indo-Polish</b><span>Badminton Association</span></div>
     </div>
     <nav class="nav-links">
         <a href="#about">About</a>
@@ -223,95 +123,69 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Bridging Communities Through Sport</h1>
-        <p>Celebrating 3 Years of Excellence & Inclusion</p>
-        <a href="#about" class="btn">Our Mission</a>
+        <h1>Indo-Polish Badminton Tournament</h1>
+        <p>Celebrating our 3rd Year Anniversary</p>
     </div>
 </section>
 
+<div class="tournament-section">
+    <div>
+        <img src="ipba_tournament_2026.jpg" alt="Tournament Poster" class="poster-img">
+    </div>
+    <div class="details-box">
+        <span>NEW EVENT</span>
+        <h2>3rd Year Anniversary Tournament</h2>
+        <p>Join the <b>Indo-Polish Badminton Association</b> for a day of competitive play and community celebration at one of Krakow's premier sports venues.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>📅 <b>Date:</b> April 25, 2026</li>
+            <li>📍 <b>Location:</b> Fame Sports Club (Dekerta, Krakow)</li>
+            <li>🏸 <b>Vision:</b> A Tournament for All – Play, Compete, Enjoy!</li>
+        </ul>
+        <a href="https://forms.gle/Gsc846hzksYGXSE7A" target="_blank" class="reg-btn">REGISTER ON GOOGLE FORMS</a>
+    </div>
+</div>
+
 <section id="about" class="section">
     <div class="mission-box">
-        <h2>Who We Are</h2>
-        <p>The primary goal of our association is to <strong>bridge the communities of Poland and India</strong> by offering badminton training to children of both nations. We aim to create a space where members of the Indian community in Poland can connect, socialize, and engage in physical activities.</p>
-        <p>Founded as <em>Ace Badminton Club</em> in 2023, we have evolved into the <strong>Indo-Polish Badminton Sport Association</strong>, a vibrant community centered around fitness and cultural exchange.</p>
-    </div>
-
-    <div class="grid">
-        <div class="card">
-            <h3>Youth Training</h3>
-            <p>Professional coaching tailored for Polish and Indian children to develop skills and discipline.</p>
-        </div>
-        <div class="card">
-            <h3>Social Hub</h3>
-            <p>Creating a home-away-from-home for the Indian diaspora to connect through active living.</p>
-        </div>
-        <div class="card">
-            <h3>Evolution</h3>
-            <p>Successfully transitioning from a local club to a recognized Sport Association in just 2 years.</p>
-        </div>
+        <h2>Our Mission</h2>
+        <p>Bridging the communities of Poland and India through sport. Originally founded as Ace Badminton Club in 2023, we have grown into a vibrant association dedicated to training children and connecting the Indian diaspora through physical activity.</p>
     </div>
 </section>
 
 <section id="gallery" class="section">
-    <h2 style="text-align: center; color: var(--dark); font-size: 2.5rem; margin-bottom: 40px;">Community Gallery</h2>
+    <h2 style="text-align: center; margin-bottom: 30px;">Community Gallery</h2>
     <div id="photo-grid" class="gallery-grid">
-        <p class="loading-text">Fetching photos from GitHub...</p>
-    </div>
-</section>
-
-<section class="footer-cta">
-    <h2>Ready to Join the Court?</h2>
-    <p>View our official tournament rules and association regulations.</p>
-    <a href="regulations.html" class="btn" style="background: var(--secondary); color: var(--dark);">View Regulations</a>
+        </div>
 </section>
 
 <script>
-    /* --- CONFIGURATION --- */
-    const GITHUB_USERNAME = 'aravindars'; // Change this
-    const REPO_NAME = 'ipsa';             // Change this
-    
-    // List files you do NOT want to show in the gallery (like logos or icons)
-    const excludedFiles = ['logo2.jpeg', 'player1.png', 'favicon.ico'];
+    /* --- GITHUB CONFIGURATION --- */
+    const GITHUB_USERNAME = 'aravindars'; 
+    const REPO_NAME = 'ipsa';             
+    const excludedFiles = ['logo2.jpeg', 'player1.png', 'ipba_tournament_2026.jpg'];
 
     async function loadGallery() {
         const grid = document.getElementById('photo-grid');
-        // We leave the path empty to search the root directory
         const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/`;
 
         try {
             const response = await fetch(apiUrl);
-            if (!response.ok) throw new Error('API limit reached or Repo private');
-            
             const files = await response.json();
             grid.innerHTML = ''; 
 
             const imageExtensions = ['jpg', 'jpeg', 'png', 'webp'];
-            
             files.forEach(file => {
                 const extension = file.name.split('.').pop().toLowerCase();
-                
-                // Check if it's an image AND not in our excluded list
                 if (imageExtensions.includes(extension) && !excludedFiles.includes(file.name)) {
                     const img = document.createElement('img');
                     img.src = file.download_url; 
                     img.className = 'gallery-item';
-                    img.alt = "Indo-Polish Badminton Association Event";
-                    
                     img.onclick = () => window.open(file.download_url, '_blank');
                     grid.appendChild(img);
                 }
             });
-
-            if (grid.innerHTML === '') {
-                grid.innerHTML = '<p class="loading-text">No gallery images found in the repository.</p>';
-            }
-
-        } catch (error) {
-            console.error('Gallery error:', error);
-            grid.innerHTML = '<p class="loading-text">Check your GitHub Username and Repo Name in the script.</p>';
-        }
+        } catch (e) { grid.innerHTML = '<p>Connect your GitHub in the script to load gallery.</p>'; }
     }
-
     loadGallery();
 </script>
 
