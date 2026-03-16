@@ -267,50 +267,51 @@
 
 <script>
     /* --- CONFIGURATION --- */
-    const GITHUB_USERNAME = 'aravindars';
-    const REPO_NAME = 'ipsa';           
-    const FOLDER_PATH = 'gallery'; 
+    const GITHUB_USERNAME = 'aravindars'; // Change this
+    const REPO_NAME = 'ipsa';             // Change this
+    
+    // List files you do NOT want to show in the gallery (like logos or icons)
+    const excludedFiles = ['logo2.jpeg', 'player1.png', 'favicon.ico'];
 
     async function loadGallery() {
         const grid = document.getElementById('photo-grid');
-        const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
+        // We leave the path empty to search the root directory
+        const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/`;
 
         try {
             const response = await fetch(apiUrl);
-            if (!response.ok) throw new Error('Folder not found or API limit reached');
+            if (!response.ok) throw new Error('API limit reached or Repo private');
             
             const files = await response.json();
-            grid.innerHTML = ''; // Clear loading text
+            grid.innerHTML = ''; 
 
-            const imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+            const imageExtensions = ['jpg', 'jpeg', 'png', 'webp'];
             
             files.forEach(file => {
                 const extension = file.name.split('.').pop().toLowerCase();
                 
-                if (imageExtensions.includes(extension)) {
+                // Check if it's an image AND not in our excluded list
+                if (imageExtensions.includes(extension) && !excludedFiles.includes(file.name)) {
                     const img = document.createElement('img');
                     img.src = file.download_url; 
                     img.className = 'gallery-item';
                     img.alt = "Indo-Polish Badminton Association Event";
                     
-                    // Simple click to view full size
                     img.onclick = () => window.open(file.download_url, '_blank');
-                    
                     grid.appendChild(img);
                 }
             });
 
             if (grid.innerHTML === '') {
-                grid.innerHTML = '<p class="loading-text">No images found in the gallery folder.</p>';
+                grid.innerHTML = '<p class="loading-text">No gallery images found in the repository.</p>';
             }
 
         } catch (error) {
             console.error('Gallery error:', error);
-            grid.innerHTML = '<p class="loading-text">Please check GitHub configuration in the code.</p>';
+            grid.innerHTML = '<p class="loading-text">Check your GitHub Username and Repo Name in the script.</p>';
         }
     }
 
-    // Initialize gallery
     loadGallery();
 </script>
 
