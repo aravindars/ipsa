@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indo-Polish Badminton Association | 3rd Anniversary</title>
+    
+    <title>Indo-Polish Badminton Association</title>
+
+    <meta property="og:title" content="Indo-Polish Badminton Association">
+    <meta property="og:description" content="Bridging the communities of Poland and India through sport. Join our community in Krakow!">
+    <meta property="og:image" content="https://aravindars.github.io/ipsa/logo2.jpeg"> 
+    <meta property="og:type" content="website">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary: #1a1a2e; /* Navy */
+            --primary: #1a1a2e; /* Navy Blue */
             --secondary: #8cc63f; /* Poster Lime Green */
             --accent: #ffcc00;
             --light: #ffffff;
@@ -48,7 +55,7 @@
             background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('player1.png');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,6 +99,7 @@
             transition: 0.3s;
             border: 2px solid var(--secondary);
             margin-top: 20px;
+            text-align: center;
         }
         .reg-btn:hover { background: var(--secondary); color: var(--primary); }
 
@@ -104,7 +112,10 @@
         .gallery-item { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; cursor: pointer; transition: 0.3s; }
         .gallery-item:hover { transform: scale(1.02); }
 
-        @media (max-width: 768px) { .tournament-section { margin: 20px; padding: 20px; } }
+        @media (max-width: 768px) { 
+            .tournament-section { margin: 20px; padding: 20px; } 
+            .hero { height: 40vh; }
+        }
     </style>
 </head>
 <body>
@@ -123,46 +134,49 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Indo-Polish Badminton Tournament</h1>
-        <p>Celebrating our 3rd Year Anniversary</p>
+        <h1>Indo-Polish Badminton Association</h1>
+        <p>3rd Year Anniversary Celebration</p>
     </div>
 </section>
 
 <div class="tournament-section">
     <div>
-        <img src="ipba_tournament_2026.png" alt="Tournament Poster" class="poster-img">
+        <img src="ipba_tournament_2026.jpg" alt="Tournament Poster" class="poster-img">
     </div>
     <div class="details-box">
-        <span>NEW EVENT</span>
-        <h2>3rd Year Anniversary Tournament</h2>
-        <p>Join the <b>Indo-Polish Badminton Association</b> for a day of competitive play and community celebration at one of Krakow's premier sports venues.</p>
-        <ul style="list-style: none; padding: 0;">
+        <span>UPCOMING EVENT</span>
+        <h2>3rd Anniversary Tournament</h2>
+        <p>Join us for a day of competitive play and community celebration at one of Krakow's premier sports venues.</p>
+        <ul style="list-style: none; padding: 0; margin-top: 15px;">
             <li>📅 <b>Date:</b> April 25, 2026</li>
             <li>📍 <b>Location:</b> Fame Sports Club (Dekerta, Krakow)</li>
-            <li>🏸 <b>Vision:</b> A Tournament for All – Play, Compete, Enjoy!</li>
+            <li>🏸 <b>Open to:</b> All skill levels!</li>
         </ul>
-        <a href="https://forms.gle/Gsc846hzksYGXSE7A" target="_blank" class="reg-btn">REGISTER ON GOOGLE FORMS</a>
+        <a href="https://forms.gle/Gsc846hzksYGXSE7A" target="_blank" class="reg-btn">REGISTER NOW</a>
     </div>
 </div>
 
 <section id="about" class="section">
     <div class="mission-box">
         <h2>Our Mission</h2>
-        <p>Bridging the communities of Poland and India through sport. Originally founded as Ace Badminton Club in 2023, we have grown into a vibrant association dedicated to training children and connecting the Indian diaspora through physical activity.</p>
+        <p>The primary goal of our association is to bridge the communities of Poland and India by offering badminton training to children of both nations. We create a space for the Indian community in Poland to connect, socialize, and stay active.</p>
     </div>
 </section>
 
 <section id="gallery" class="section">
-    <h2 style="text-align: center; margin-bottom: 30px;">Community Gallery</h2>
+    <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Community Gallery</h2>
     <div id="photo-grid" class="gallery-grid">
         </div>
 </section>
 
 <script>
     /* --- GITHUB CONFIGURATION --- */
+    // Update these with your real details to make the gallery work
     const GITHUB_USERNAME = 'aravindars'; 
     const REPO_NAME = 'ipsa';             
-    const excludedFiles = ['logo2.jpeg', 'player1.png', 'ipba_tournament_2026.png'];
+    
+    // Files to skip in the gallery
+    const excludedFiles = ['logo2.jpeg', 'player1.png', 'ipba_tournament_2026.jpg', 'favicon.ico'];
 
     async function loadGallery() {
         const grid = document.getElementById('photo-grid');
@@ -170,6 +184,7 @@
 
         try {
             const response = await fetch(apiUrl);
+            if (!response.ok) throw new Error();
             const files = await response.json();
             grid.innerHTML = ''; 
 
@@ -184,7 +199,9 @@
                     grid.appendChild(img);
                 }
             });
-        } catch (e) { grid.innerHTML = '<p>Connect your GitHub in the script to load gallery.</p>'; }
+        } catch (e) { 
+            grid.innerHTML = '<p style="text-align:center; width:100%;">Gallery ready to sync with GitHub.</p>'; 
+        }
     }
     loadGallery();
 </script>
