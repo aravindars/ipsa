@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament Regulations - Indo-Polish Badminton Association</title>
+    <title>Regulations - Indo-Polish Badminton Association</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary: #6200ee; 
-            --secondary: #03dac6;
-            --dark: #1a1a2e;
+            --primary: #1a1a2e; /* Navy Blue */
+            --secondary: #8cc63f; /* Poster Lime Green */
+            --dark: #121212;
             --light: #ffffff;
             --gray: #f4f7f6;
         }
@@ -29,7 +29,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 8%;
-            background: var(--dark);
+            background: var(--primary);
             color: white;
             position: sticky;
             top: 0;
@@ -71,23 +71,24 @@
             background: none;
             border: 2px solid var(--primary);
             color: var(--primary);
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 8px 25px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             margin: 0 5px;
             transition: 0.3s;
         }
 
         .lang-btn.active {
-            background: var(--primary);
-            color: white;
+            background: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--primary);
         }
 
         /* --- Typography --- */
-        h1 { color: var(--dark); border-bottom: 3px solid var(--secondary); padding-bottom: 10px; }
-        h2 { color: var(--primary); margin-top: 40px; }
-        h3 { color: var(--dark); background: #eee; padding: 5px 15px; border-radius: 5px; margin-top: 30px;}
+        h1 { color: var(--primary); border-bottom: 4px solid var(--secondary); padding-bottom: 10px; font-weight: 800; }
+        h2 { color: var(--primary); margin-top: 40px; font-weight: 700; }
+        h3 { color: var(--primary); background: #f0fbdc; padding: 8px 15px; border-radius: 8px; margin-top: 30px; border-left: 5px solid var(--secondary);}
         
         ul { padding-left: 20px; }
         li { margin-bottom: 10px; }
@@ -97,7 +98,13 @@
             margin-top: 40px;
             text-decoration: none;
             color: var(--primary);
-            font-weight: 600;
+            font-weight: 700;
+            border-bottom: 2px solid var(--secondary);
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            color: var(--secondary);
         }
 
         /* Hide one language by default */
@@ -105,7 +112,8 @@
         .lang-section.active { display: block; }
 
         @media (max-width: 768px) {
-            .container { padding: 30px; margin: 10px; }
+            .container { padding: 30px; margin: 15px; }
+            h1 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -114,15 +122,15 @@
 <header>
     <div class="logo-area" onclick="window.location.href='index.html'">
         <img src="logo2.jpeg" alt="IPBA Logo">
-        <div style="font-size: 0.9rem; font-weight: bold; color: var(--secondary);">BACK TO HOME</div>
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); letter-spacing: 1px;">BACK TO HOME</div>
     </div>
 </header>
 
 <div class="container">
     
     <div class="lang-switch">
-        <button class="lang-btn active" onclick="showLang('pl')">POLSKI</button>
-        <button class="lang-btn" onclick="showLang('en')">ENGLISH</button>
+        <button class="lang-btn active" onclick="showLang('pl', event)">POLSKI</button>
+        <button class="lang-btn" onclick="showLang('en', event)">ENGLISH</button>
     </div>
 
     <div id="lang-pl" class="lang-section active">
@@ -215,7 +223,7 @@
 </div>
 
 <script>
-    function showLang(lang) {
+    function showLang(lang, event) {
         // Hide all sections
         document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
