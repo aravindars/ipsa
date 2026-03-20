@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regulations - Indo-Polish Badminton Association</title>
+    <title>Regulamin - Indo-Polish Badminton Association</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary: #1a1a2e; /* Navy Blue */
-            --secondary: #8cc63f; /* Poster Lime Green */
+            --primary: #1a1a2e;
+            --secondary: #8cc63f;
             --dark: #121212;
             --light: #ffffff;
             --gray: #f4f7f6;
@@ -20,10 +20,9 @@
             font-family: 'Inter', sans-serif;
             background: var(--gray);
             color: #333;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
-        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -37,84 +36,37 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-        }
+        .logo-area { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .logo-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--secondary); }
 
-        .logo-area img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--secondary);
-        }
-
-        /* --- Container --- */
         .container {
             max-width: 900px;
             margin: 40px auto;
             background: white;
-            padding: 60px;
+            padding: 50px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        /* --- Language Switcher --- */
-        .lang-switch {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
+        .lang-switch { text-align: center; margin-bottom: 40px; position: sticky; top: 80px; background: white; padding: 10px; z-index: 900; }
         .lang-btn {
-            background: none;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 8px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 700;
-            margin: 0 5px;
-            transition: 0.3s;
+            background: none; border: 2px solid var(--primary); color: var(--primary);
+            padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 700; margin: 0 5px; transition: 0.3s;
         }
+        .lang-btn.active { background: var(--secondary); border-color: var(--secondary); color: var(--primary); }
 
-        .lang-btn.active {
-            background: var(--secondary);
-            border-color: var(--secondary);
-            color: var(--primary);
-        }
-
-        /* --- Typography --- */
-        h1 { color: var(--primary); border-bottom: 4px solid var(--secondary); padding-bottom: 10px; font-weight: 800; }
-        h2 { color: var(--primary); margin-top: 40px; font-weight: 700; }
-        h3 { color: var(--primary); background: #f0fbdc; padding: 8px 15px; border-radius: 8px; margin-top: 30px; border-left: 5px solid var(--secondary);}
+        h1 { color: var(--primary); border-bottom: 4px solid var(--secondary); padding-bottom: 10px; font-weight: 800; text-align: center; }
+        h2 { color: var(--primary); margin-top: 40px; font-weight: 700; text-align: center; font-size: 1.4rem; }
+        h3 { color: var(--primary); background: #f0fbdc; padding: 10px 15px; border-radius: 8px; margin-top: 30px; border-left: 5px solid var(--secondary); font-size: 1.1rem; }
         
         ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-
-        .btn-back {
-            display: inline-block;
-            margin-top: 40px;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 700;
-            border-bottom: 2px solid var(--secondary);
-            transition: 0.3s;
-        }
-
-        .btn-back:hover {
-            color: var(--secondary);
-        }
-
-        /* Hide one language by default */
+        li { margin-bottom: 8px; }
         .lang-section { display: none; }
         .lang-section.active { display: block; }
+        .back-link { text-align: center; margin-top: 40px; }
+        .back-link a { text-decoration: none; color: var(--primary); font-weight: 700; border-bottom: 2px solid var(--secondary); }
 
-        @media (max-width: 768px) {
-            .container { padding: 30px; margin: 15px; }
-            h1 { font-size: 1.5rem; }
-        }
+        @media (max-width: 768px) { .container { padding: 25px; margin: 15px; } }
     </style>
 </head>
 <body>
@@ -122,49 +74,85 @@
 <header>
     <div class="logo-area" onclick="window.location.href='index.html'">
         <img src="logo2.jpeg" alt="IPBA Logo">
-        <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); letter-spacing: 1px;">BACK TO HOME</div>
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); letter-spacing: 1px;">POWRÓT / BACK</div>
     </div>
 </header>
 
 <div class="container">
-    
     <div class="lang-switch">
-        <button class="lang-btn active" onclick="showLang('pl', event)">POLSKI</button>
-        <button class="lang-btn" onclick="showLang('en', event)">ENGLISH</button>
+        <button id="btn-pl" class="lang-btn active" onclick="showLang('pl')">POLSKI</button>
+        <button id="btn-en" class="lang-btn" onclick="showLang('en')">ENGLISH</button>
     </div>
 
     <div id="lang-pl" class="lang-section active">
         <h1>REGULAMIN</h1>
         <h2>OTWARTE MISTRZOSTWA SIPS W BADMINTONIE</h2>
-        <p>Niniejszy regulamin stanowi Umowę, w której stronami są Organizator oraz osoba zgłaszająca chęć udziału w imprezie lub jej przedstawiciel ustawowy, występująca jako Uczestnik.</p>
+
+        <p>Niniejszy regulamin stanowi Umowę, w której stronami są Organizator oraz osoba zgłaszająca chęć udziału w imprezie lub jej przedstawiciel ustawowy, występująca jako Uczestnik. Akceptacja regulaminu oznacza zgodę na warunki oraz zawarcie umowy.</p>
 
         <h3>1. Organizator:</h3>
-        <p>"Stowarzyszenie Indo-Polish Sport" (Indo-Polish Badminton Association) Kraków</p>
+        <p>"Stowarzyszenie Indo-Polish Sport" (Indo-Polish Badminton Association) Kraków.</p>
 
         <h3>2. Cel:</h3>
         <ul>
-            <li>Promocja i popularyzacja badmintona w Krakowie.</li>
-            <li>Integracja sympatyków badmintona.</li>
-            <li>Wyłonienie Mistrzów Krakowa na rok 2026 r.</li>
+            <li>promocja i popularyzacja badmintona w Krakowie,</li>
+            <li>integracja sympatyków badmintona,</li>
+            <li>wyłonienie Mistrzów Krakowa na rok 2025 r,</li>
+            <li>wzbudzanie i rozwijanie potrzeby racjonalnej troski o własne zdrowie i sprawność fizyczną.</li>
         </ul>
 
-        <h3>3. Termin i harmonogram:</h3>
-        <p><strong>25.04.2026 r.</strong></p>
+        <h3>3. Termin i harmonogram zawodów:</h3>
         <ul>
-            <li>godz. 11.00 - rozpoczęcie gier</li>
+            <li>29.03.2025 r.</li>
+            <li>godz. 9.00 - rozpoczęcie gier</li>
             <li>godz. 12.00 - uroczyste otwarcie Mistrzostw</li>
+            <li>godz. 12.15 - ciąg dalszy gier.</li>
         </ul>
 
-        <h3>4. Miejsce:</h3>
-        <p>Hala Fame Sport Club ul. Dekerta 21, 30-703 Kraków</p>
+        <h3>4. Miejsce zawodów:</h3>
+        <p>Hala Fame Sport Club ul. Dekerta 21, 30-703 Kraków.</p>
 
         <h3>5. Kategorie wiekowe:</h3>
+        <p>Singiel mężczyzn Open, Singiel mężczyzn Amator, Singiel kobiet – Amator, Debel mężczyzn – Open, Debel mężczyzn – Amator, Debel mężczyzn – 4Fun, Debel kobiet – Open, Mixt - Open, Mixt – Amator, Dzieci.</p>
+
+        <h3>6. Grand Prix:</h3>
+        <p>Turniej w powyższych grach jest wliczany do cyklu I Grand Prix SIPS Krakowa.</p>
+
+        <h3>7. System rozgrywek:</h3>
+        <p>System grupowo-pucharowy w grach pojedynczych oraz podwójnych (min. 3 osoby/pary na kategorię). Gry na 5 kortach. Mecze do dwóch wygranych setów.</p>
+
+        <h3>8. Warunki uczestnictwa:</h3>
         <ul>
-            <li>Singiel mężczyzn (Open / Amator)</li>
-            <li>Singiel kobiet (Amator)</li>
-            <li>Debel mężczyzn (Open / Amator / 4Fun)</li>
-            <li>Mixt (Open / Amator)</li>
+            <li><strong>Amator:</strong> Pełnoletni zawodnik bez licencji PZBad (brak MP Elity/Seniorów/Młodzieżowych w karierze).</li>
+            <li><strong>Open:</strong> Pełnoletni zawodnik bez licencji w ostatnich 5 latach. Dopuszcza się graczy z licencją powyżej 25 lat (kobiety) i 30 lat (mężczyźni).</li>
         </ul>
+
+        <h3>9. Klasyfikacja generalna:</h3>
+        <p>Zwycięzcą w klasyfikacji generalnej mogą być pary, które grały razem wspólnie w minimum 2 turniejach.</p>
+
+        <h3>10. Pracownicy oświaty:</h3>
+        <p>Pracownicy oświaty/samorządowcy nie muszą obecnie praktykować zawodu, aby startować w dedykowanej kategorii.</p>
+
+        <h3>11. Sprzęt:</h3>
+        <p>Wymagane posiadanie własnego sprzętu: strój sportowy, obuwie halowe, rakieta do badmintona.</p>
+
+        <h3>12. Odpowiedzialność:</h3>
+        <p>Każdy pełnoletni uczestnik startuje w zawodach na własną odpowiedzialność, co potwierdza podpisem w biurze zawodów.</p>
+
+        <h3>13. Osoby niepełnoletnie:</h3>
+        <p>Wymagana jest pisemna zgoda opiekuna prawnego na udział w zawodach.</p>
+
+        <h3>14. Ryzyko sportowe:</h3>
+        <p>Uczestnik przyjmuje do wiadomości, że udział wiąże się z wysiłkiem fizycznym i naturalnym ryzykiem wypadków lub urazów.</p>
+
+        <h3>15. Oświadczenie o zdrowiu:</h3>
+        <p>Warunkiem dopuszczenia jest podpisanie oświadczenia o stanie zdrowia na własną odpowiedzialność przed startem.</p>
+
+        <h3>16. Zgłoszenia:</h3>
+        <p>Przyjmowane do 25 marca 2025 r. (godz. 22.00) przez formularz online. Można dopisać: "Szukam Partnera".</p>
+
+        <h3>17. Wyposażenie:</h3>
+        <p>Uczestnik zobowiązany jest do posiadania odpowiedniego obuwia zmiennego (halowego).</p>
 
         <h3>18. Wpisowe:</h3>
         <ul>
@@ -173,66 +161,94 @@
             <li>120 zł za trzy kategorie</li>
         </ul>
 
-        <h3>20. Kontakt i Organizatorzy:</h3>
+        <h3>19. Nagrody:</h3>
+        <p>Medale oraz nagrody rzeczowe w miarę możliwości Organizatora.</p>
+
+        <h3>20. Osoby odpowiedzialne:</h3>
+        <ul>
+            <li>Mariusz Wójcik: 661 632 000 (Organizator)</li>
+            <li>Vasanth Mokkamayan: 785 075 505 (Organizator)</li>
+            <li>Murali Nanjappan: 730 266 887 (Organizator)</li>
+            <li>Aravind: 579 358 039 (Koordynator)</li>
+            <li>Łukasz Roik: 502 035 023 (Sędzia)</li>
+        </ul>
+
+        <h3>21. Postanowienia końcowe:</h3>
+        <ul>
+            <li>Brak ubezpieczenia grupowego – zalecane ubezpieczenie indywidualne.</li>
+            <li>Zgoda na wykorzystanie wizerunku (prawo prasowe).</li>
+            <li>Lotki nylonowe zapewnia organizator; pierwszeństwo mają lotki piórowe (własne).</li>
+        </ul>
+
+        <h3>22. RODO:</h3>
+        <p>Administratorem danych jest „Stowarzyszenie Indo-Polish Sport”, Kraków, ul. Prądnicka 36. Dane przetwarzane są w celu realizacji turnieju.</p>
+    </div>
+
+    <div id="lang-en" class="lang-section">
+        <h1>REGULATIONS</h1>
+        <h2>SIPS OPEN BADMINTON CHAMPIONSHIPS</h2>
+
+        <p>These regulations constitute an Agreement between the Organizer and the Participant. Acceptance means consent to the terms and conditions.</p>
+
+        <h3>1. Organizer:</h3>
+        <p>"Indo-Polish Sport Association" (Indo-Polish Badminton Association) Krakow.</p>
+
+        <h3>2. Objective:</h3>
+        <ul>
+            <li>Promotion of badminton in Krakow.</li>
+            <li>Integration of enthusiasts.</li>
+            <li>Selection of 2025 Krakow Champions.</li>
+        </ul>
+
+        <h3>3. Date & Schedule:</h3>
+        <p>29.03.2025. Starts at 9:00 AM. Opening at 12:00 PM.</p>
+
+        <h3>5. Categories:</h3>
+        <p>Men's/Women's Singles (Open/Amateur), Doubles (Open/Amateur/4Fun), Mixed, Children.</p>
+
+        <h3>8. Participation:</h3>
+        <p><strong>Amateur:</strong> No professional license history. <strong>Open:</strong> No license in the last 5 years (except seniors over 30).</p>
+
+        <h3>12. Liability:</h3>
+        <p>Adults participate at their own risk. Participation involves physical effort and risk of injury.</p>
+
+        <h3>15. Health Statement:</h3>
+        <p>A signed health declaration at the office is mandatory for admission.</p>
+
+        <h3>16. Registration:</h3>
+        <p>Until March 25, 2025 (10 PM) via online form. "Looking for Partner" option available.</p>
+
+        <h3>18. Entry Fees:</h3>
+        <ul>
+            <li>45 PLN - 1 Category</li>
+            <li>80 PLN - 2 Categories</li>
+            <li>120 PLN - 3 Categories</li>
+        </ul>
+
+        <h3>20. Contacts:</h3>
         <ul>
             <li>Mariusz Wójcik: 661 632 000</li>
             <li>Vasanth Mokkamayan: 785 075 505</li>
             <li>Murali Nanjappan: 730 266 887</li>
             <li>Aravind: 579 358 039</li>
         </ul>
+
+        <h3>22. GDPR:</h3>
+        <p>Data handled by Indo-Polish Sport Association for tournament organization purposes only.</p>
     </div>
 
-    <div id="lang-en" class="lang-section">
-        <h1>REGULATIONS</h1>
-        <h2>SIPS OPEN BADMINTON CHAMPIONSHIPS</h2>
-        <p>These regulations constitute an Agreement between the Organizer and the Participant.</p>
-
-        <h3>1. Organizer:</h3>
-        <p>"Indo-Polish Sport Association" (Indo-Polish Badminton Association) Krakow</p>
-
-        <h3>2. Objective:</h3>
-        <ul>
-            <li>Promotion of badminton in Krakow.</li>
-            <li>Integration of badminton enthusiasts.</li>
-            <li>Selection of the Krakow Champions for 2026.</li>
-        </ul>
-
-        <h3>3. Date & Schedule:</h3>
-        <p><strong>April 25, 2026</strong></p>
-        <ul>
-            <li>11:00 AM - Start of games</li>
-            <li>12:00 PM - Ceremonial opening</li>
-        </ul>
-
-        <h3>5. Categories:</h3>
-        <ul>
-            <li>Men’s singles (Open / Amateur)</li>
-            <li>Women’s singles (Amateur)</li>
-            <li>Doubles & Mixed (Various levels)</li>
-        </ul>
-
-        <h3>18. Entry Fees:</h3>
-        <ul>
-            <li>45 PLN for one category</li>
-            <li>80 PLN for two categories</li>
-            <li>120 PLN for three categories</li>
-        </ul>
+    <div class="back-link">
+        <a href="index.html">← POWRÓT / BACK TO HOME</a>
     </div>
-
-    <a href="index.html" class="btn-back">← Back to Homepage</a>
 </div>
 
 <script>
-    function showLang(lang, event) {
-        // Hide all sections
+    function showLang(lang) {
         document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        
-        // Show selected section
         document.getElementById('lang-' + lang).classList.add('active');
-        
-        // Highlight active button
-        event.currentTarget.classList.add('active');
+        document.getElementById('btn-' + lang).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
