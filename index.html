@@ -17,8 +17,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary: #1a1a2e; /* Navy Blue */
-            --secondary: #8cc63f; /* Poster Lime Green */
+            --primary: #1a1a2e;
+            --secondary: #8cc63f;
             --light: #ffffff;
             --gray: #f4f7f6;
         }
@@ -29,7 +29,7 @@
             background: var(--light);
             color: #333;
             line-height: 1.6;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* --- Navigation --- */
@@ -37,7 +37,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 8%;
+            padding: 1rem 5%;
             background: var(--primary);
             color: white;
             position: sticky;
@@ -45,74 +45,92 @@
             z-index: 1000;
         }
 
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--secondary); }
-        .brand-name b { display: block; font-size: 1.1rem; color: var(--secondary); text-transform: uppercase; }
+        .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo-area img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--secondary); }
+        .brand-name b { display: block; font-size: 1rem; color: var(--secondary); text-transform: uppercase; }
 
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.9rem; }
 
-        /* --- Hero Section --- */
+        /* --- Hero --- */
         .hero {
             background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('player1.png');
             background-size: cover;
             background-position: center;
-            height: 50vh;
+            height: 40vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            padding: 0 20px;
         }
-
-        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 10px; }
 
         /* --- Tournament Spotlight --- */
         .tournament-section {
             max-width: 1100px;
-            margin: -60px auto 60px;
+            margin: -40px auto 40px;
             background: white;
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             position: relative;
             z-index: 10;
         }
+        .poster-img { width: 100%; border-radius: 12px; }
 
-        .poster-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        .details-box span { background: var(--secondary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem; }
-        .details-box h2 { font-size: 2.2rem; margin: 15px 0; color: var(--primary); }
-        
         .reg-btn {
             display: inline-block;
-            padding: 18px 40px;
-            background: #252525;
+            padding: 15px 30px;
+            background: #121212;
             color: var(--secondary);
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 800;
-            font-size: 1.2rem;
-            transition: 0.3s;
             border: 2px solid var(--secondary);
-            margin-top: 20px;
-            text-align: center;
+            margin-top: 15px;
         }
-        .reg-btn:hover { background: var(--secondary); color: var(--primary); }
 
-        /* --- Sections --- */
-        .section { padding: 60px 10%; max-width: 1200px; margin: auto; }
-        .mission-box { background: var(--gray); padding: 40px; border-radius: 20px; border-left: 8px solid var(--secondary); }
+        /* --- Gallery: Grid on Desktop, Slider on Mobile --- */
+        .section { padding: 40px 5%; max-width: 1200px; margin: auto; }
         
-        /* --- Gallery --- */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); grid-gap: 15px; grid-auto-rows: 280px; }
-        .gallery-item { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; cursor: pointer; transition: 0.3s; }
-        .gallery-item:hover { transform: scale(1.02); }
+        .gallery-container {
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            gap: 15px;
+            padding: 10px 0 20px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+        .gallery-container::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome */
 
-        /* --- Lightbox Modal --- */
+        .gallery-item {
+            flex: 0 0 80%; /* Show 80% of image on mobile to hint at more */
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            scroll-snap-align: start;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Desktop Gallery View */
+        @media (min-width: 768px) {
+            .gallery-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                overflow-x: visible;
+                scroll-snap-type: none;
+            }
+            .gallery-item {
+                flex: none;
+                width: 100%;
+            }
+        }
+
+        /* --- Lightbox --- */
         #lightbox {
             display: none;
             position: fixed;
@@ -122,65 +140,42 @@
             background: rgba(0,0,0,0.95);
             align-items: center;
             justify-content: center;
-            cursor: pointer;
         }
-        #lightbox-img { max-width: 90%; max-height: 85%; border-radius: 8px; border: 2px solid var(--secondary); }
-        .close-btn { position: absolute; top: 30px; right: 40px; color: white; font-size: 50px; cursor: pointer; }
-
-        @media (max-width: 768px) { 
-            .tournament-section { margin: 20px; padding: 20px; } 
-            .hero { height: 40vh; }
-        }
+        #lightbox-img { max-width: 95%; max-height: 80%; border-radius: 8px; border: 2px solid var(--secondary); }
+        .close-btn { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-area">
+    <div class="logo-area" onclick="location.href='/'">
         <img src="logo2.jpeg" alt="IPBA Logo">
-        <div class="brand-name"><b>Indo-Polish</b><span>Badminton Association</span></div>
+        <div class="brand-name"><b>Indo-Polish</b><span>Association</span></div>
     </div>
     <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
-        <a href="regulations.html">Regulations</a>
+        <a href="regulations">Regulations</a>
     </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Indo-Polish Badminton Association</h1>
-        <p>3rd Year Anniversary Celebration</p>
-    </div>
+    <h1>IPBA Krakow</h1>
 </section>
 
 <div class="tournament-section">
-    <div>
-        <img src="ipba_tournament_2026.png" alt="Tournament Poster" class="poster-img">
-    </div>
+    <div><img src="ipba_tournament_2026.png" alt="Tournament" class="poster-img"></div>
     <div class="details-box">
-        <span>UPCOMING EVENT</span>
-        <h2>3rd Anniversary Tournament</h2>
-        <p>Join us for a day of competitive play and community celebration at one of Krakow's premier sports venues.</p>
-        <ul style="list-style: none; padding: 0; margin-top: 15px;">
-            <li>📅 <b>Date:</b> April 25, 2026</li>
-            <li>📍 <b>Location:</b> Fame Sports Club (Dekerta, Krakow)</li>
-            <li>🏸 <b>Open to:</b> All skill levels!</li>
-        </ul>
+        <h2 style="color: var(--primary); margin-top:0;">2026 Tournament</h2>
+        <p>Registration is now open for the 3rd Anniversary Open Championships.</p>
         <a href="https://forms.gle/Gsc846hzksYGXSE7A" target="_blank" class="reg-btn">REGISTER NOW</a>
     </div>
 </div>
 
-<section id="about" class="section">
-    <div class="mission-box">
-        <h2>Our Mission</h2>
-        <p>The primary goal of our association is to bridge the communities of Poland and India by offering badminton training to children of both nations. We create a space for the Indian community in Poland to connect, socialize, and stay active.</p>
-    </div>
-</section>
-
 <section id="gallery" class="section">
-    <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Community Gallery</h2>
-    <div id="photo-grid" class="gallery-grid" oncontextmenu="return false;">
+    <h2 style="text-align: center; color: var(--primary);">Community Gallery</h2>
+    <p style="text-align: center; font-size: 0.8rem; color: #888; margin-bottom: 20px;" class="mobile-only">Swipe left to see more photos →</p>
+    <div id="photo-grid" class="gallery-container" oncontextmenu="return false;">
         </div>
 </section>
 
@@ -210,42 +205,29 @@
                     const img = document.createElement('img');
                     img.src = file.download_url; 
                     img.className = 'gallery-item';
-                    
-                    // Trigger the Blob masking on click
                     img.onclick = () => openLightbox(file.download_url);
-                    
                     grid.appendChild(img);
                 }
             });
-        } catch (e) { console.log("Syncing Gallery..."); }
+        } catch (e) { console.log("Gallery offline"); }
     }
 
     async function openLightbox(url) {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
         try {
-            // Converts the external URL into a local session "Blob" URL
-            const response = await fetch(url);
-            const blob = await response.blob();
-            const blobUrl = URL.createObjectURL(blob);
-            
-            lightboxImg.src = blobUrl;
-            lightbox.style.display = 'flex';
+            const res = await fetch(url);
+            const blob = await res.blob();
+            lbImg.src = URL.createObjectURL(blob);
+            lb.style.display = 'flex';
             document.body.style.overflow = 'hidden'; 
-        } catch (e) {
-            lightboxImg.src = url;
-            lightbox.style.display = 'flex';
-        }
+        } catch (e) { lbImg.src = url; lb.style.display = 'flex'; }
     }
 
     function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        if (lightboxImg.src.startsWith('blob:')) {
-            URL.revokeObjectURL(lightboxImg.src);
-        }
-        lightbox.style.display = 'none';
+        const lbImg = document.getElementById('lightbox-img');
+        if (lbImg.src.startsWith('blob:')) URL.revokeObjectURL(lbImg.src);
+        document.getElementById('lightbox').style.display = 'none';
         document.body.style.overflow = 'auto'; 
     }
 
