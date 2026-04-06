@@ -6,76 +6,43 @@
     <title>Regulamin - Indo-Polish Badminton Association</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-        :root {
-            --primary: #1a1a2e;
-            --secondary: #8cc63f;
-            --dark: #121212;
-            --light: #ffffff;
-            --gray: #f4f7f6;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: var(--gray);
-            color: #333;
-            line-height: 1.7;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 8%;
-            background: var(--primary);
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .logo-area { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        :root { --primary: #1a1a2e; --secondary: #8cc63f; --gray: #f4f7f6; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--gray); color: #333; line-height: 1.6; }
+        
+        /* Header Match */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 8%; background: var(--primary); color: white; position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 15px; cursor: pointer; text-decoration: none; color: white; }
         .logo-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--secondary); }
-
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .lang-switch { text-align: center; margin-bottom: 40px; position: sticky; top: 80px; background: white; padding: 10px; z-index: 900; }
-        .lang-btn {
-            background: none; border: 2px solid var(--primary); color: var(--primary);
-            padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 700; margin: 0 5px; transition: 0.3s;
-        }
+        
+        .container { max-width: 1000px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        /* Lang Switcher */
+        .lang-switch { text-align: center; margin-bottom: 40px; position: sticky; top: 90px; background: white; padding: 10px; z-index: 999; border-bottom: 1px solid #eee; }
+        .lang-btn { background: none; border: 2px solid var(--primary); color: var(--primary); padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 700; margin: 0 10px; }
         .lang-btn.active { background: var(--secondary); border-color: var(--secondary); color: var(--primary); }
 
-        h1 { color: var(--primary); border-bottom: 4px solid var(--secondary); padding-bottom: 10px; font-weight: 800; text-align: center; }
-        h2 { color: var(--primary); margin-top: 40px; font-weight: 700; text-align: center; font-size: 1.4rem; }
-        h3 { color: var(--primary); background: #f0fbdc; padding: 10px 15px; border-radius: 8px; margin-top: 30px; border-left: 5px solid var(--secondary); font-size: 1.1rem; }
+        h1 { text-align: center; color: var(--primary); font-size: 1.8rem; margin-bottom: 10px; }
+        h2 { text-align: center; color: var(--primary); font-size: 1.3rem; margin-bottom: 30px; }
+        h3 { color: var(--primary); margin-top: 30px; font-size: 1.1rem; border-bottom: 2px solid var(--secondary); display: inline-block; padding-bottom: 3px; }
         
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        p, li { font-size: 0.95rem; text-align: justify; }
         .lang-section { display: none; }
         .lang-section.active { display: block; }
-        .back-link { text-align: center; margin-top: 40px; }
-        .back-link a { text-decoration: none; color: var(--primary); font-weight: 700; border-bottom: 2px solid var(--secondary); }
-
-        @media (max-width: 768px) { .container { padding: 25px; margin: 15px; } }
+        
+        .bank-info { background: #f0fbdc; padding: 20px; border-left: 5px solid var(--secondary); margin: 20px 0; font-family: monospace; }
+        .contact-list { list-style: none; padding: 0; }
+        .contact-list li { margin-bottom: 5px; font-weight: 600; }
+        
+        @media (max-width: 768px) { .container { padding: 20px; margin: 10px; } }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-area" onclick="window.location.href='index.html'">
+    <a href="/" class="logo-area">
         <img src="logo2.jpeg" alt="IPBA Logo">
-        <div style="font-size: 0.85rem; font-weight: 700; color: var(--secondary); letter-spacing: 1px;">POWRÓT / BACK</div>
-    </div>
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--secondary);">POWRÓT / HOME</div>
+    </a>
 </header>
 
 <div class="container">
@@ -87,175 +54,159 @@
     <div id="lang-pl" class="lang-section active">
         <h1>REGULAMIN</h1>
         <h2>OTWARTE MISTRZOSTWA SIPS W BADMINTONIE</h2>
-
-        <p>Niniejszy regulamin stanowi Umowę, w której stronami są Organizator oraz osoba zgłaszająca chęć udziału w imprezie lub jej przedstawiciel ustawowy, występująca jako Uczestnik. Akceptacja regulaminu oznacza zgodę na warunki oraz zawarcie umowy.</p>
+        
+        <p>Niniejszy regulamin stanowi Umowę, w której stronami są Organizator oraz osoba zgłaszająca chęć udziału w imprezie lub jej przedstawiciel ustawowy, występująca jako Uczestnik.</p>
+        <p>Akceptacja regulaminu oznacza zgodę na warunki oraz zawarcie umowy.</p>
 
         <h3>1. Organizator:</h3>
-        <p>"Stowarzyszenie Indo-Polish Sport" (Indo-Polish Badminton Association) Kraków.</p>
+        <p>„Stowarzyszenie Indo-Polish Sport” (Indo-Polish Badminton Association) Kraków.</p>
 
         <h3>2. Cel:</h3>
         <ul>
             <li>promocja i popularyzacja badmintona w Krakowie,</li>
             <li>integracja sympatyków badmintona,</li>
-            <li>wyłonienie Mistrzów Krakowa na rok 2025 r,</li>
-            <li>wzbudzanie i rozwijanie potrzeby racjonalnej troski o własne zdrowie i sprawność fizyczną.</li>
+            <li>wyłonienie Mistrzów Krakowa na rok 2026 r,</li>
+            <li>wzbudzanie i rozwijanie potrzeby racjonalnej troski o własne zdrowie i sprawność fizyczną, rozwijanie potrzeby aktywnego uczestnictwa w życiu sportowym.</li>
         </ul>
 
-        <h3>3. Termin i harmonogram zawodów:</h3>
-        <ul>
-            <li>29.03.2025 r.</li>
-            <li>godz. 9.00 - rozpoczęcie gier</li>
-            <li>godz. 12.00 - uroczyste otwarcie Mistrzostw</li>
-            <li>godz. 12.15 - ciąg dalszy gier.</li>
-        </ul>
+        <h3>3. Termin i harmonogram zawodów: 25.04.2026 r.</h3>
+        <p>godz. 14.00 - rozpoczęcie gier<br>
+        godz. 15.00 - uroczyste otwarcie Mistrzostw<br>
+        godz. 15.15 - ciąg dalszy gier.</p>
 
         <h3>4. Miejsce zawodów:</h3>
-        <p>Hala Fame Sport Club ul. Dekerta 21, 30-703 Kraków.</p>
+        <p>Hala Fame Sport Club ul. Dekerta 21, 30-703 Kraków</p>
 
         <h3>5. Kategorie wiekowe:</h3>
-        <p>Singiel mężczyzn Open, Singiel mężczyzn Amator, Singiel kobiet – Amator, Debel mężczyzn – Open, Debel mężczyzn – Amator, Debel mężczyzn – 4Fun, Debel kobiet – Open, Mixt - Open, Mixt – Amator, Dzieci.</p>
+        <ul>
+            <li>Singiel mężczyzn Open</li>
+            <li>Singiel mężczyzn Amator</li>
+            <li>Singiel kobiet – Amator</li>
+            <li>Debel mężczyzn – Open</li>
+            <li>Debel mężczyzn – Amator</li>
+            <li>Debel mężczyzn – 4Fun</li>
+            <li>Debel kobiet – Open</li>
+            <li>Mixt - Open</li>
+            <li>Mixt – Amator</li>
+        </ul>
 
-        <h3>6. Grand Prix:</h3>
-        <p>Turniej w powyższych grach jest wliczany do cyklu I Grand Prix SIPS Krakowa.</p>
+        <h3>6.</h3>
+        <p>Turniej w powyższych grach jest wliczany do cyklu III Grand Prix SIPS Krakowa</p>
 
         <h3>7. System rozgrywek:</h3>
-        <p>System grupowo-pucharowy w grach pojedynczych oraz podwójnych (min. 3 osoby/pary na kategorię). Gry na 5 kortach. Mecze do dwóch wygranych setów.</p>
+        <p>System rozgrywek grupowo-pucharowy w grach pojedynczych oraz w grach podwójnych (minimalna ilość uczestników w danej kategorii wynosi 3 osoby/pary). Organizator dopuszcza możliwość gry kobiet w dowolnej kategorii męskiej (za wyjątkiem gry podwójnej amator).</p>
+        <p>Mecze rozgrywane są do dwóch wygranych setów do 15 punktów. 15 punkt kończy set.</p>
+        <p>System rozgrywek zostanie ustalony po zamknięciu listy zgłoszeń i będzie zapewniał maksymalnie dużą ilość gier możliwą do rozegrania w dniu turnieju. Po rozegraniu meczy grupowych z grupy wychodzi minimum 2 zawodników.</p>
+        <p>Gry prowadzone będą na 5 kortach. Single i deble rozgrywane będą do dwóch wygranych setów (punktacja zostanie ustalona bezpośrednio przed zawodami, będzie uzależniona od ilości zgłoszonych zawodników).</p>
+        <p>We wszystkich turniejach cyklu OTWARTE MISTRZOSTWA SIPS W BADMINTONIE nie będą rozgrywane mecze o 3-cie miejsce (miejsce 3 zdobywają zawodnicy którzy przegrali swoje gry półfinałowe).</p>
 
         <h3>8. Warunki uczestnictwa:</h3>
-        <ul>
-            <li><strong>Amator:</strong> Pełnoletni zawodnik bez licencji PZBad (brak MP Elity/Seniorów/Młodzieżowych w karierze).</li>
-            <li><strong>Open:</strong> Pełnoletni zawodnik bez licencji w ostatnich 5 latach. Dopuszcza się graczy z licencją powyżej 25 lat (kobiety) i 30 lat (mężczyźni).</li>
-        </ul>
+        <p>Turnieje rozgrywane będą w trzech poziomach sportowych – Amator, Open oraz 4Fun:</p>
+        <p><strong>Amator</strong> - to pełnoletni zawodnik nie posiadający nigdy wcześniej licencji PZBad. Do kategorii amator nie mogą się zgłaszać zawodnicy występujący w swojej karierze badmintonowej w turniejach rangi Mistrzostw Polski Elity, Mistrzostw Polski Seniorów oraz Mistrzostw Polski w kategoriach młodzieżowych. W uzasadnionych przypadkach po uprzednim poinformowaniu Organizatora istnieje możliwość indywidualnego podejścia do zgłaszającego się zawodnika i w rezultacie dopuszczenie go do gier mimo posiadanej licencji.</p>
+        <p><strong>Open</strong> - to pełnoletni zawodnik nie posiadający licencji PZBad w przeciągu ostatnich 5 lat. Dopuszcza się zawodników z licencją PZBad powyżej 25 lat - kobieta i 30 lat mężczyzna (zgodnie z Regulaminem Seniorów pkt. Va.2 - na stronie http://ebadminton.com.pl)</p>
+        <p><strong>4Fun</strong> - osoby które zaczynają swoją przygodę z badmintonem.</p>
 
-        <h3>9. Klasyfikacja generalna:</h3>
-        <p>Zwycięzcą w klasyfikacji generalnej mogą być pary, które grały razem wspólnie w minimum 2 turniejach.</p>
+        <h3>9.</h3>
+        <p>Zwycięzcą w klasyfikacji generalnej w poszczególnych kategoriach, mogą być pary, które grały razem wspólnie w minimum 2 turniejach.</p>
 
-        <h3>10. Pracownicy oświaty:</h3>
-        <p>Pracownicy oświaty/samorządowcy nie muszą obecnie praktykować zawodu, aby startować w dedykowanej kategorii.</p>
+        <h3>10.</h3>
+        <p>Pracownicy oświaty, chcący wziąć udział w kategorii nauczyciel/samorządowiec, nie muszą obecnie praktykować zawodu.</p>
 
-        <h3>11. Sprzęt:</h3>
-        <p>Wymagane posiadanie własnego sprzętu: strój sportowy, obuwie halowe, rakieta do badmintona.</p>
+        <h3>11.</h3>
+        <p>Posiadanie sprzętu sportowego do badmintona - strój, obuwie, rakieta do badmintona.</p>
 
-        <h3>12. Odpowiedzialność:</h3>
-        <p>Każdy pełnoletni uczestnik startuje w zawodach na własną odpowiedzialność, co potwierdza podpisem w biurze zawodów.</p>
+        <h3>12.</h3>
+        <p>Każdy pełnoletni uczestnik imprezy startuje w zawodach na własną odpowiedzialność, co potwierdza własnoręcznym podpisem w biurze zawodów.</p>
 
-        <h3>13. Osoby niepełnoletnie:</h3>
-        <p>Wymagana jest pisemna zgoda opiekuna prawnego na udział w zawodach.</p>
+        <h3>13.</h3>
+        <p>W przypadku niepełnoletnich uczestników wymagana jest zgoda opiekuna prawnego na udział w zawodach na piśmie - wzór oświadczenia stanowi załącznik do regulaminu.</p>
 
-        <h3>14. Ryzyko sportowe:</h3>
-        <p>Uczestnik przyjmuje do wiadomości, że udział wiąże się z wysiłkiem fizycznym i naturalnym ryzykiem wypadków lub urazów.</p>
+        <h3>14.</h3>
+        <p>Uczestnik przyjmuje do wiadomości, że udział w zawodach wiąże się z wysiłkiem fizycznym i pociąga za sobą naturalne ryzyko i zagrożenie wypadkami, możliwość odniesienia obrażeń ciała i urazów fizycznych.</p>
 
-        <h3>15. Oświadczenie o zdrowiu:</h3>
-        <p>Warunkiem dopuszczenia jest podpisanie oświadczenia o stanie zdrowia na własną odpowiedzialność przed startem.</p>
+        <h3>15.</h3>
+        <p>Warunkiem dopuszczenia zawodnika do zawodów będzie złożenie podpisu pod oświadczeniem o starcie w imprezie (oświadczenie o stanie zdrowia) na własną odpowiedzialność. Przekazanie Organizatorowi podpisanego oświadczenia oznacza, że uczestnik rozważył i ocenił charakter, zakres i stopień ryzyka wiążącego się z uczestnictwem w imprezie i dobrowolnie zdecydował się podjąć to ryzyko startując w zawodach wyłącznie na własną odpowiedzialność.</p>
 
-        <h3>16. Zgłoszenia:</h3>
-        <p>Przyjmowane do 25 marca 2025 r. (godz. 22.00) przez formularz online. Można dopisać: "Szukam Partnera".</p>
+        <h3>16. Zgłoszenia do zawodów:</h3>
+        <p>Zgłoszenia do wszystkich gier przyjmowane będą do 23 kwietnia 2026 roku - do godz. 22.00, za pośrednictwem formularza rejestrowego. Jeżeli zawodnik/czka nie ma partnera/ki do gry podwójnej, należy dodać dopisek "Szukam Partnera do gry debel/mixt".</p>
 
-        <h3>17. Wyposażenie:</h3>
-        <p>Uczestnik zobowiązany jest do posiadania odpowiedniego obuwia zmiennego (halowego).</p>
-
-        <h3>18. Wpisowe:</h3>
-        <ul>
-            <li>45 zł za jedną kategorię</li>
-            <li>80 zł za dwie kategorie</li>
-            <li>120 zł za trzy kategorie</li>
-        </ul>
-        <div style="background: #f4f7f6; padding: 20px; border-radius: 10px; border-left: 5px solid #8cc63f; margin-top: 15px;">
-            <p><strong>Prosimy o wpłatę wpisowego na poniższy numer konta, zachowując wskazany format tytułu przelewu:</strong></p>
-    
-            <p style="margin-bottom: 5px;"><strong>Numer konta:</strong><br>
-            <span style="font-family: monospace; font-size: 1.1rem;">88 1140 2004 0000 3902 8567 7597</span></p>
-    
-            <p><strong>Format tytułu przelewu:</strong><br>
-            CONTRIBUTION FOR STATUTORY ACTIVITIES FROM [Participant Name(s)]</p>
-        </div>        
+        <h3>17. Uiszczenie wpisowego:</h3>
+        <p><strong>45 zł za jedną kategorię / 80 zł dwie kat.</strong> (każdy zawodnik może wystąpić max. w 2 kategoriach).</p>
+        <div class="bank-info">
+            Numer konta: 88 1140 2004 0000 3902 8567 7597<br>
+            Tytuł przelewu: WPŁATA NA CELE STATUTOWE [Imię i nazwisko]
+        </div>
 
         <h3>19. Nagrody:</h3>
-        <p>Medale oraz nagrody rzeczowe w miarę możliwości Organizatora.</p>
+        <p>medale oraz nagrody rzeczowe wg. możliwości organizatora</p>
 
         <h3>20. Osoby odpowiedzialne:</h3>
-        <ul>
-            <li>Mariusz Wójcik: 661 632 000 (Organizator)</li>
-            <li>Vasanth Mokkamayan: 785 075 505 (Organizator)</li>
-            <li>Murali Nanjappan: 730 266 887 (Organizator)</li>
-            <li>Aravind: 579 358 039 (Organizator)</li>
+        <ul class="contact-list">
+            <li>Mariusz Wójcik tel. 661 632 000 - organizator</li>
+            <li>Vasanth Mokkamayan tel. 785 075 505 - organizator</li>
+            <li>Murali Nanjappan tel. 730 266 887 - organizator</li>
+            <li>Zbigniew Kacprzak tel. 600 470 053 - sędzia zawodów</li>
         </ul>
 
         <h3>21. Postanowienia końcowe:</h3>
-        <ul>
-            <li>Brak ubezpieczenia grupowego – zalecane ubezpieczenie indywidualne.</li>
-            <li>Zgoda na wykorzystanie wizerunku (prawo prasowe).</li>
-            <li>Lotki nylonowe zapewnia organizator; pierwszeństwo mają lotki piórowe (własne).</li>
-        </ul>
+        <p>Organizator nie ubezpiecza startujących zawodników, natomiast rekomenduje ubezpieczenie się indywidualne Zawodniczek i Zawodników.</p>
+        <p>W trakcie trwania imprezy będzie zbierany materiał prasowy wraz z wizerunkiem. Zgodnie z Ustawą z dnia 26 stycznia 1984 r. prawo prasowe Dz.U. 1984 nr 5 poz. 24 w związku z Ustawą z dnia 10 maja 2018 r. o ochronie danych osobowych Dz.U.2018 poz. 1000 utrwalanie i dalsze przetwarzanie wizerunku w mediach odbywać się będzie bez zgody.</p>
+        <p>Uczestnicy zgadzają się na publikację zdjęć, filmów oraz imienia i nazwiska wyłącznie na potrzeby organizacji turnieju na stronach: www.ipba.pl oraz profilach Facebook IPBA.</p>
+        <p>Organizator zapewnia lotki nylonowe. W sprawach spornych decyduje organizator lub/i sędzia zawodów.</p>
 
-        <h3>22. RODO:</h3>
-        <p>Administratorem danych jest „Stowarzyszenie Indo-Polish Sport”, Kraków, ul. Prądnicka 36. Dane przetwarzane są w celu realizacji turnieju.</p>
+        <h3>22. Ochrona danych osobowych (RODO):</h3>
+        <p>Administratorem danych osobowych jest „Stowarzyszenie Indo-Polish Sport” (31-202 Kraków) przy ulicy Prądnickiej 36, tel: +48 661632000, e-mail: neomedica4000@gmail.com</p>
+        <p>Podanie danych jest dobrowolne, jednak odmowa skutkować będzie brakiem możliwości wzięcia udziału w zawodach. Dane przetwarzane będą w celu prawidłowej organizacji imprezy zgodnie z art. 6 ust. 1 lit. b RODO.</p>
     </div>
 
     <div id="lang-en" class="lang-section">
         <h1>REGULATIONS</h1>
         <h2>SIPS OPEN BADMINTON CHAMPIONSHIPS</h2>
-
-        <p>These regulations constitute an Agreement between the Organizer and the Participant. Acceptance means consent to the terms and conditions.</p>
+        <p>These regulations constitute an Agreement between the Organizer and the Participant (or legal guardian). Acceptance of the regulations implies consent to the terms and the conclusion of the agreement.</p>
 
         <h3>1. Organizer:</h3>
-        <p>"Indo-Polish Sport Association" (Indo-Polish Badminton Association) Krakow.</p>
+        <p>“Indo-Polish Sport Association” (Indo-Polish Badminton Association) Kraków.</p>
 
-        <h3>2. Objective:</h3>
+        <h3>2. Objectives:</h3>
         <ul>
-            <li>Promotion of badminton in Krakow.</li>
-            <li>Integration of enthusiasts.</li>
-            <li>Selection of 2025 Krakow Champions.</li>
+            <li>Promotion and popularization of badminton in Krakow,</li>
+            <li>Integration of badminton enthusiasts,</li>
+            <li>Selecting the 2026 Krakow Champions,</li>
+            <li>Developing the need for active participation in sports and physical fitness.</li>
         </ul>
 
-        <h3>3. Date & Schedule:</h3>
-        <p>29.03.2025. Starts at 9:00 AM. Opening at 12:00 PM.</p>
+        <h3>3. Date and Schedule: April 25, 2026</h3>
+        <p>2.00 PM - Start of matches<br>
+        3.00 PM - Official opening<br>
+        3.15 PM - Continuation of games.</p>
 
         <h3>5. Categories:</h3>
-        <p>Men's/Women's Singles (Open/Amateur), Doubles (Open/Amateur/4Fun), Mixed, Children.</p>
+        <p>Men's Singles (Open/Amateur), Women's Singles (Amateur), Men's Doubles (Open/Amateur/4Fun), Women's Doubles (Open), Mixed Doubles (Open/Amateur).</p>
 
-        <h3>8. Participation:</h3>
-        <p><strong>Amateur:</strong> No professional license history. <strong>Open:</strong> No license in the last 5 years (except seniors over 30).</p>
+        <h3>7. Tournament System:</h3>
+        <p>Group-playoff system for singles and doubles (minimum 3 players/pairs per category). Women may play in any men's category (except Amateur Doubles).</p>
+        <p>Matches played to 2 winning sets of 15 points. No matches for 3rd place (both semi-final losers take 3rd place).</p>
 
-        <h3>12. Liability:</h3>
-        <p>Adults participate at their own risk. Participation involves physical effort and risk of injury.</p>
+        <h3>8. Skill Levels:</h3>
+        <p><strong>Amateur:</strong> Adult player who has never held a PZBad license (with specific tournament exclusions). <strong>Open:</strong> Adult player without a license in the last 5 years (or meets Senior age criteria). <strong>4Fun:</strong> Beginners starting their adventure with badminton.</p>
 
-        <h3>15. Health Statement:</h3>
-        <p>A signed health declaration at the office is mandatory for admission.</p>
-
-        <h3>16. Registration:</h3>
-        <p>Until March 25, 2025 (10 PM) via online form. "Looking for Partner" option available.</p>
-
-        <h3>18. Entry Fees:</h3>
-        <ul>
-            <li>45 PLN - 1 Category</li>
-            <li>80 PLN - 2 Categories</li>
-            <li>120 PLN - 3 Categories</li>
-        </ul>
-        <div style="background: #f4f7f6; padding: 20px; border-radius: 10px; border-left: 5px solid #8cc63f; margin-top: 15px;">
-            <p><strong>Please pay the tournament fee to the following account using the specified transfer title:</strong></p>
-            
-            <p style="margin-bottom: 5px;"><strong>Account Number:</strong><br>
-            <span style="font-family: monospace; font-size: 1.1rem;">88 1140 2004 0000 3902 8567 7597</span></p>
-            
-            <p><strong>Transfer Title Format:</strong><br>
-            CONTRIBUTION FOR STATUTORY ACTIVITIES FROM [Participant Name(s)]</p>
+        <h3>17. Entry Fees:</h3>
+        <p><strong>45 PLN (1 category) / 80 PLN (2 categories).</strong> Max 2 categories per player.</p>
+        <div class="bank-info">
+            Account: 88 1140 2004 0000 3902 8567 7597<br>
+            Title: CONTRIBUTION FOR STATUTORY ACTIVITIES FROM [Participant Name]
         </div>
 
-        <h3>20. Contacts:</h3>
-        <ul>
-            <li>Mariusz Wójcik: 661 632 000</li>
-            <li>Vasanth Mokkamayan: 785 075 505</li>
-            <li>Murali Nanjappan: 730 266 887</li>
-            <li>Aravind: 579 358 039</li>
+        <h3>20. Responsible Persons:</h3>
+        <ul class="contact-list">
+            <li>Mariusz Wójcik: 661 632 000 - Organizer</li>
+            <li>Vasanth Mokkamayan: 785 075 505 - Organizer</li>
+            <li>Murali Nanjappan: 730 266 887 - Organizer</li>
+            <li>Zbigniew Kacprzak: 600 470 053 - Umpire</li>
         </ul>
 
         <h3>22. GDPR:</h3>
-        <p>Data handled by Indo-Polish Sport Association for tournament organization purposes only.</p>
-    </div>
-
-    <div class="back-link">
-        <a href="index.html">← POWRÓT / BACK TO HOME</a>
+        <p>Data Controller: Indo-Polish Sport Association, ul. Prądnicka 36, Kraków. Data is processed solely for event organization purposes.</p>
     </div>
 </div>
 
