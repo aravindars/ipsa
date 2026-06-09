@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wydarzenie / Event - Indo-Polish Badminton Association</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        :root { --primary: #1a1a2e; --secondary: #8cc63f; --gray: #f4f7f6; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--gray); color: #333; line-height: 1.6; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 8%; background: var(--primary); color: white; position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 15px; cursor: pointer; text-decoration: none; color: white; }
+        .logo-area img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--secondary); }
+        
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        .lang-switch { text-align: center; margin-bottom: 40px; position: sticky; top: 90px; background: white; padding: 10px; z-index: 999; border-bottom: 1px solid #eee; }
+        .lang-btn { background: none; border: 2px solid var(--primary); color: var(--primary); padding: 8px 25px; border-radius: 30px; cursor: pointer; font-weight: 700; margin: 0 10px; }
+        .lang-btn.active { background: var(--secondary); border-color: var(--secondary); color: var(--primary); }
+
+        .poster-container { text-align: center; margin-bottom: 40px; }
+        .poster-img { max-width: 100%; max-height: 600px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        h1 { text-align: center; color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        h2 { color: var(--primary); margin-top: 35px; font-size: 1.3rem; border-bottom: 2px solid var(--secondary); display: inline-block; padding-bottom: 3px; }
+        
+        p, li { font-size: 1rem; text-align: justify; }
+        ul { list-style: none; padding: 0; }
+        ul li { margin-bottom: 8px; }
+        
+        .info-box { background: #f0fbdc; padding: 25px; border-left: 5px solid var(--secondary); margin: 30px 0; border-radius: 0 10px 10px 0; }
+        .info-box li { font-size: 1.05rem; font-weight: 600; }
+        
+        .lang-section { display: none; }
+        .lang-section.active { display: block; }
+        
+        .footer-note { margin-top: 50px; text-align: center; font-weight: 700; color: var(--primary); border-top: 1px solid #eee; padding-top: 20px; }
+
+        @media (max-width: 768px) { .container { padding: 25px; margin: 10px; } h1 { font-size: 1.6rem; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="/" class="logo-area">
+        <img src="logo2.jpeg" alt="IPBA Logo">
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--secondary);">POWRÓT / HOME</div>
+    </a>
+</header>
+
+<div class="container">
+    <div class="lang-switch">
+        <button id="btn-pl" class="lang-btn active" onclick="showLang('pl')">POLSKI</button>
+        <button id="btn-en" class="lang-btn" onclick="showLang('en')">ENGLISH</button>
+    </div>
+
+    <div class="poster-container">
+        <img src="image_28b1bc.jpg" alt="Badminton Bez Barier" class="poster-img">
+    </div>
+
+    <!-- SEKCJA POLSKA -->
+    <div id="lang-pl" class="lang-section active">
+        <h1>IPBA na XXVII Tygodniu Osób z Niepełnosprawnościami „Kocham Kraków z Wzajemnością”</h1>
+        <p>Już 12 czerwca będziemy obecni na Rynku Głównym w Krakowie podczas inauguracji XXVII Tygodnia Osób z Niepełnosprawnościami „Kocham Kraków z Wzajemnością”.</p>
+        <p>To jedno z największych wydarzeń integracyjnych w Krakowie, którego celem jest budowanie miasta otwartego, dostępnego i przyjaznego dla wszystkich mieszkańców. W programie znajdują się wydarzenia sportowe, edukacyjne, kulturalne i rekreacyjne, a Rynek Główny zamieni się w przestrzeń spotkań, aktywności i wspólnego świętowania. Wśród licznych organizacji i inicjatyw swoje miejsce będzie miało również Indo-Polish Badminton Association.</p>
+
+        <h2>Badminton bez barier</h2>
+        <p>W IPBA wierzymy, że sport powinien być dostępny dla każdego.</p>
+        <p>Badminton to dyscyplina, która może łączyć ludzi niezależnie od wieku, poziomu sprawności czy wcześniejszego doświadczenia sportowego. Na naszych treningach spotykają się dzieci, młodzież, dorośli, seniorzy oraz osoby z różnymi niepełnosprawnościami. Łączy nas wspólna pasja do ruchu, zdrowej aktywności i dobrej atmosfery.</p>
+        <p>Podczas wydarzenia będziemy promować ideę „Badminton Bez Barier” – inicjatywę pokazującą, że sport może być przestrzenią integracji, budowania pewności siebie i nawiązywania nowych relacji.</p>
+
+        <h2>Odण्याच्या nasze stoisko</h2>
+        <p>Zapraszamy do rozmowy z naszymi trenerami i wolontariuszami. Przy naszym stoisku będzie można:</p>
+        <ul>
+            <li>🏸 poznać działalność IPBA</li>
+            <li>🏸 dowiedzieć się więcej o treningach w Krakowie</li>
+            <li>🏸 porozmawiać o możliwościach rozpoczęcia przygody z badmintonem</li>
+            <li>🏸 otrzymać materiały informacyjne</li>
+            <li>🏸 przekonać się, że badminton naprawdę jest sportem dla każdego</li>
+        </ul>
+
+        <h2>Gdzie i kiedy?</h2>
+        <div class="info-box">
+            <ul>
+                <li>📍 <b>Miejsce:</b> Rynek Główny w Krakowie</li>
+                <li>📅 <b>Data:</b> 12 czerwca 2026 r.</li>
+                <li>🕙 <b>Godziny:</b> Stoisko IPBA czynne od godz. 10:00 do 17:00</li>
+            </ul>
+        </div>
+        <p>Jeżeli szukasz aktywności sportowej dla siebie, swojego dziecka lub bliskiej osoby – odwiedź nas. Chętnie pokażemy, że pierwszy krok na kort może zrobić każdy.</p>
+
+        <p class="footer-note">Do zobaczenia na Rynku Głównym!<br><br><i>Zespół Indo-Polish Badminton Association</i></p>
+    </div>
+
+    <!-- ENGLISH SECTION -->
+    <div id="lang-en" class="lang-section">
+        <h1>IPBA at the 27th Week of Persons with Disabilities “I Love Kraków Back”</h1>
+        <p>On June 12, we will be present at Kraków’s Main Market Square during the opening event of the 27th Week of Persons with Disabilities “I Love Kraków Back”.</p>
+        <p>This is one of the largest inclusion and accessibility events in Kraków, promoting an open, welcoming and accessible city for all residents. The program includes sports, educational, cultural and recreational activities, transforming the Main Market Square into a space for meeting people, discovering new opportunities and celebrating diversity together. Among the many organizations and initiatives taking part in the event, the Indo-Polish Badminton Association (IPBA) will proudly be there as well.</p>
+
+        <h2>Badminton Without Barriers</h2>
+        <p>At IPBA, we believe that sport should be accessible to everyone.</p>
+        <p>Badminton is a sport that brings people together regardless of age, ability level or previous sporting experience. Our training sessions welcome children, teenagers, adults, seniors and people with various disabilities. What unites us is a shared passion for physical activity, healthy living and a friendly, supportive atmosphere.</p>
+        <p>During the event, we will be promoting our “Badminton Without Barriers” initiative, demonstrating how sport can create opportunities for inclusion, build self-confidence and help people develop meaningful social connections.</p>
+
+        <h2>Visit Our Booth</h2>
+        <p>We invite you to meet our coaches, volunteers and members. At our booth you will be able to:</p>
+        <ul>
+            <li>🏸 Learn more about IPBA and our activities</li>
+            <li>🏸 Discover badminton training opportunities in Kraków</li>
+            <li>🏸 Talk to our team about getting started in badminton</li>
+            <li>🏸 Receive information materials about our programs</li>
+            <li>🏸 See for yourself that badminton truly is a sport for everyone</li>
+        </ul>
+
+        <h2>Where and When?</h2>
+        <div class="info-box">
+            <ul>
+                <li>📍 <b>Venue:</b> Main Market Square (Rynek Główny), Kraków</li>
+                <li>📅 <b>Date:</b> June 12, 2026</li>
+                <li>🕙 <b>Hours:</b> IPBA booth open from 10:00 a.m. to 5:00 p.m.</li>
+            </ul>
+        </div>
+        <p>Whether you are looking for a new activity for yourself, your child or a family member, we invite you to visit us. We will be happy to show you that everyone can take their first step onto a badminton court.</p>
+
+        <p class="footer-note">We look forward to meeting you in Kraków!<br><br><i>Indo-Polish Badminton Association</i></p>
+    </div>
+</div>
+
+<script>
+    function showLang(lang) {
+        document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        document.getElementById('btn-' + lang).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
