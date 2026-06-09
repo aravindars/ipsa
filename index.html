@@ -56,7 +56,7 @@
             background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('player1.png');
             background-size: cover;
             background-position: center;
-            height: 50vh;
+            height: 45vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -65,9 +65,9 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 10px; }
+        .hero h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); margin-bottom: 10px; }
 
-        /* --- Tournament Spotlight --- */
+        /* --- Event Spotlight --- */
         .tournament-section {
             max-width: 1100px;
             margin: -60px auto 60px;
@@ -84,21 +84,25 @@
 
         .poster-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        .details-box span { background: var(--secondary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem; }
-        .details-box h2 { font-size: 2.2rem; margin: 15px 0; color: var(--primary); }
+        .details-box .badge { background: var(--secondary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem; display: inline-block; margin-bottom: 15px;}
+        .details-box h2 { font-size: 1.8rem; margin: 0 0 15px 0; color: var(--primary); border-bottom: 2px solid var(--gray); padding-bottom: 10px; }
         
+        .lang-block { margin-bottom: 25px; }
+        .lang-block p { text-align: justify; font-size: 0.95rem; margin-bottom: 10px; }
+        .lang-block ul { padding-left: 20px; margin: 10px 0; font-size: 0.9rem; }
+
         .reg-btn {
-            display: inline-block;
-            padding: 18px 40px;
+            display: block;
+            padding: 15px 30px;
             background: #252525;
             color: var(--secondary);
             text-decoration: none;
             border-radius: 10px;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             transition: 0.3s;
             border: 2px solid var(--secondary);
-            margin-top: 20px;
+            margin-top: 25px;
             text-align: center;
         }
         .reg-btn:hover { background: var(--secondary); color: var(--primary); }
@@ -117,10 +121,10 @@
             -webkit-overflow-scrolling: touch;
         }
         
-        .gallery-grid::-webkit-scrollbar { display: none; } /* Hides scrollbar on mobile */
+        .gallery-grid::-webkit-scrollbar { display: none; } 
 
         .gallery-item { 
-            flex: 0 0 85%; /* Shows most of the image on mobile */
+            flex: 0 0 85%; 
             height: 280px; 
             object-fit: cover; 
             border-radius: 12px; 
@@ -160,7 +164,7 @@
 
         @media (max-width: 768px) { 
             .tournament-section { margin: 20px; padding: 20px; } 
-            .hero { height: 40vh; }
+            .hero { height: 35vh; }
         }
     </style>
 </head>
@@ -181,24 +185,40 @@
 <section class="hero">
     <div class="hero-content">
         <h1>Indo-Polish Badminton Association</h1>
-        <p>3rd Year Anniversary Celebration</p>
+        <p>Badminton Bez Barier / Badminton Without Barriers</p>
     </div>
 </section>
 
 <div class="tournament-section">
     <div>
-        <img src="ipba_tournament_2026.png" alt="Tournament Poster" class="poster-img">
+        <img src="image.png" alt="Badminton Bez Barier Poster" class="poster-img">
     </div>
     <div class="details-box">
-        <span>UPCOMING EVENT</span>
-        <h2>3rd Anniversary Tournament</h2>
-        <p>Join us for a day of competitive play and community celebration at one of Krakow's premier sports venues.</p>
-        <ul style="list-style: none; padding: 0; margin-top: 15px;">
-            <li>📅 <b>Date:</b> April 25, 2026</li>
-            <li>📍 <b>Location:</b> Fame Sports Club (Dekerta, Krakow)</li>
-            <li>🏸 <b>Open to:</b> All skill levels!</li>
-        </ul>
-        <a href="https://forms.gle/Gsc846hzksYGXSE7A" target="_blank" class="reg-btn">REGISTER NOW</a>
+        <span class="badge">UPCOMING EVENT / NADCHODZĄCE WYDARZENIE</span>
+        
+        <!-- POLISH SUMMARY -->
+        <div class="lang-block">
+            <h2>IPBA na XXVII Tygodniu Osób z Niepełnosprawnościami</h2>
+            <p>Już 12 czerwca będziemy obecni na Rynku Głównym w Krakowie promując ideę „Badminton Bez Barier”. Odwiedź nasze stoisko, poznaj naszych trenerów i zobacz, że badminton to sport dla każdego!</p>
+            <ul style="list-style: none; padding: 0;">
+                <li>📅 <b>Data:</b> 12 czerwca 2026 r.</li>
+                <li>📍 <b>Miejsce:</b> Rynek Główny w Krakowie</li>
+                <li>🕙 <b>Godziny:</b> Stoisko czynne od 10:00 do 17:00</li>
+            </ul>
+        </div>
+
+        <!-- ENGLISH SUMMARY -->
+        <div class="lang-block">
+            <h2>IPBA at the 27th Week of Persons with Disabilities</h2>
+            <p>On June 12, we will be present at Kraków's Main Market Square promoting our "Badminton Without Barriers" initiative. Visit our booth, meet our coaches and volunteers, and discover new training opportunities!</p>
+            <ul style="list-style: none; padding: 0;">
+                <li>📅 <b>Date:</b> June 12, 2026</li>
+                <li>📍 <b>Venue:</b> Main Market Square (Rynek Główny), Kraków</li>
+                <li>🕙 <b>Hours:</b> IPBA booth open from 10:00 AM to 5:00 PM</li>
+            </ul>
+        </div>
+
+        <a href="http://www.ipba.pl" target="_blank" class="reg-btn">ODWIEDŹ NAS / VISIT US</a>
     </div>
 </div>
 
@@ -212,7 +232,8 @@
 <section id="gallery" class="section">
     <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Community Gallery</h2>
     <div id="photo-grid" class="gallery-grid" oncontextmenu="return false;">
-        </div>
+        <!-- Images dynamically loaded via JS -->
+    </div>
 </section>
 
 <div id="lightbox" onclick="closeLightbox()">
@@ -222,7 +243,7 @@
 
 <script>
     const GITHUB_USERNAME = 'aravindars'; 
-    const REPO_NAME = 'ipsa';             
+    const REPO_NAME = 'ipsa';            
     const excludedFiles = ['logo2.jpeg', 'player1.png', 'ipba_tournament_2026.png', 'favicon.ico'];
 
     async function loadGallery() {
