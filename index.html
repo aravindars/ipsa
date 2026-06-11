@@ -232,7 +232,7 @@
 <section id="gallery" class="section">
     <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Community Gallery</h2>
     <div id="photo-grid" class="gallery-grid" oncontextmenu="return false;">
-        <!-- Images dynamically loaded via JS -->
+        <!-- Images dynamically loaded via JavaScript array below -->
     </div>
 </section>
 
@@ -242,31 +242,31 @@
 </div>
 
 <script>
-    const GITHUB_USERNAME = 'aravindars'; 
-    const REPO_NAME = 'ipsa';            
-    const excludedFiles = ['logo2.jpeg', 'player1.png', 'ipba_tournament_2026.png', 'favicon.ico'];
+    // Localized static array containing only the .jpeg community files
+    const galleryImages = [
+        'WhatsApp Image 2026-03-16 at 01.22.14.jpeg',
+        'WhatsApp Image 2026-03-16 at 01.23.22.jpeg',
+        'WhatsApp Image 2026-03-16 at 01.26.05.jpeg',
+        'WhatsApp Image 2026-03-16 at 01.26.06 (1).jpeg',
+        'WhatsApp Image 2026-03-16 at 01.26.06.jpeg',
+        'WhatsApp Image 2026-03-16 at 01.27.15.jpeg',
+        'WhatsApp Image 2026-03-18 at 09.13.29 (1).jpeg',
+        'WhatsApp Image 2026-03-18 at 09.13.29.jpeg'
+    ];
 
-    async function loadGallery() {
+    function loadGallery() {
         const grid = document.getElementById('photo-grid');
-        const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/`;
+        grid.innerHTML = ''; 
 
-        try {
-            const response = await fetch(apiUrl);
-            const files = await response.json();
-            grid.innerHTML = ''; 
-
-            const imageExtensions = ['jpg', 'jpeg', 'png', 'webp'];
-            files.forEach(file => {
-                const extension = file.name.split('.').pop().toLowerCase();
-                if (imageExtensions.includes(extension) && !excludedFiles.includes(file.name)) {
-                    const img = document.createElement('img');
-                    img.src = file.download_url; 
-                    img.className = 'gallery-item';
-                    img.onclick = () => openLightbox(file.download_url);
-                    grid.appendChild(img);
-                }
-            });
-        } catch (e) { console.log("Syncing Gallery..."); }
+        galleryImages.forEach(filename => {
+            const img = document.createElement('img');
+            // Safe encoding handles whitespace natively in the file naming structure
+            const encodedPath = encodeURIComponent(filename);
+            img.src = encodedPath; 
+            img.className = 'gallery-item';
+            img.onclick = () => openLightbox(encodedPath);
+            grid.appendChild(img);
+        });
     }
 
     async function openLightbox(url) {
@@ -294,6 +294,7 @@
         document.body.style.overflow = 'auto'; 
     }
 
+    // Initialize gallery layout securely
     loadGallery();
 </script>
 
